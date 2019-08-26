@@ -2,6 +2,9 @@ package datastructure;
 
 import java.util.*;
 
+// Implement Queue using 2 stacks
+// Push to one stack, when pop transfer all items from input to output stack
+// if it's empty
 public class MyQueue {
     Stack<Integer> input, output;
 
@@ -16,7 +19,7 @@ public class MyQueue {
         input.push(x);
     }
 
-    public void transfer(Stack<Integer>in, Stack<Integer>out) {
+    private void transfer(Stack<Integer>in, Stack<Integer>out) {
         int val;
         while(!in.empty()) {
             val = in.pop();
