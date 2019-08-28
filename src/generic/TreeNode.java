@@ -1,4 +1,4 @@
-package expedia;
+package generic;
 
 
 public class TreeNode {
