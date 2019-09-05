@@ -2,6 +2,7 @@ package datastructure;
 import java.util.*;
 
 
+// Google, Facebook
 // https://leetcode.com/problems/lru-cache/
 // LRU cache: when insert, evit least use key before inserting
 // Use: double linkedlist to modify nodes with O(1), hash table to store key
