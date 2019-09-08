@@ -19,7 +19,7 @@ class Edge {
 }
 
 
-public class Graph {
+public class WeightedGraph {
 
     boolean directed;
     int vertices;
@@ -59,7 +59,7 @@ public class Graph {
         addEdge(x, y, 1);
     }
 
-    public static boolean bfs(Graph g, int start, int end) {
+    public static boolean bfs(WeightedGraph g, int start, int end) {
         Queue<Integer> queue = new LinkedList<>();
         boolean[] status = new boolean[g.vertices];
 
@@ -84,7 +84,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph g = new Graph(true);
+        WeightedGraph g = new WeightedGraph(true);
         g.addEdge(0, 1);
         g.addEdge(1, 2);
         g.addEdge(2, 3);
