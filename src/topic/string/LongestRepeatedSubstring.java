@@ -3,6 +3,8 @@ import java.util.*;
 
 
 // Find longest repeated substring, non-overlap
+// Use hashmap to store substring with end index
+// Everything check if new substring in hashmap and not overlap
 public class LongestRepeatedSubstring {
 
     public String findLongestRepeatedSubstring(String s) {
