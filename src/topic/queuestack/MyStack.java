@@ -1,4 +1,4 @@
-package stack;
+package queuestack;
 import java.util.*;
 
 
