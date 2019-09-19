@@ -51,9 +51,61 @@ public class HouseRobber {
         return curr;
     }
 
-    public static void main(String[] args) {
-        HouseRobber hb = new HouseRobber();
-        int res = hb.rob(new int[] {1, 4, 3, 5, 11});
-        System.out.println("House rob..." + res);
+    // https://leetcode.com/problems/house-robber-ii/
+    // Each house is put in circle
+    // Analyse: house at 0 and n - 1 cannot be robbed
+    // so either choose to rob from 0 to n - 2 or 1 to n - 1
+    public int helper(int[] nums, int left, int right) {
+        if(left == right) {
+            return nums[right];
+        }
+
+        int prev = 0, curr = 0, tmp = 0;
+        for(int i = left; i <= right; i++) {
+            tmp = curr;
+            curr = Math.max(curr, nums[i] + prev);
+            prev = tmp;
+        }
+        return curr;
+    }
+
+    public int rob2(int nums) {
+        if(nums.length == 0) {
+            return 0;
+        }
+
+        if(nums.length == 1) {
+            return nums[0];
+        }
+
+        int max1 = helper(nums, 0, nums.length - 2);
+        int max2 = helper(nums, 1, nums.length - 1);
+        return Math.max(max1, max2);
+    }
+
+
+    // https://leetcode.com/problems/house-robber-iii/
+    // Every house is formed binary tree
+    // At root node, recursively call left and right
+    // Each call return result with node root and without node root
+    // with root: root.val + without left + without right
+    // without root: max(left) + max(right)
+    public int[] robTree(TreeNode node) {
+        if(node == null) {
+            return new int[] {0, 0};
+        }
+
+        int[] left = robTree(node.left);
+        int[] right = robTree(node.right);
+
+        int[] res = new int[] {0, 0};
+        res[0] = node.val + left[1] + right[1];
+        res[1] = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        return res;
+    }
+
+    public int rob3(TreeNode root) {
+        int[] ans = robTree(root);
+        return Math.max(ans[0], ans[1]);
     }
 }
