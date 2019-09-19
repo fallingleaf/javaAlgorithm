@@ -1,4 +1,4 @@
-package array;
+package dynamicprogramming;
 import java.util.*;
 
 // https://leetcode.com/problems/number-of-longest-increasing-subsequence/
