@@ -7,7 +7,8 @@ import java.util.*;
 // Given an array of meeting time intervals consisting of start and end times
 // [[s1,e1],[s2,e2],...] (si < ei),
 // find the minimum number of conference rooms required
-// Sort meeting by start time, use priority queue and put end time in queue
+// Analyse: when we can re-use a room if it's ended, use heap to track earliest ended meeting
+// Sort meeting by start time
 // if next start time <= end time then cannot use same room => increase counter
 // otherwise can use same room and remove the meeting out of queue
 class MeetingRoom {
