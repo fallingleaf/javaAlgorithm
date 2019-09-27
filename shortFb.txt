@@ -1,12 +1,12 @@
-938,Range Sum of BST,81.5%,Medium,
+938,Range Sum of BST,81.5%,Medium, done
 
-535,Encode and Decode TinyURL,74.9%,Medium,
+535,Encode and Decode TinyURL,74.9%,Medium, done
 
-654,Maximum Binary Tree,70.7%,Medium,
+654,Maximum Binary Tree,70.7%,Medium, done
 
 461,Hamming Distance,69.6%,Easy,
 
-921,Minimum Add to Make Parentheses Valid,68.6%,Medium,
+921,Minimum Add to Make Parentheses Valid,68.6%,Medium, done
 
 852,Peak Index in a Mountain Array,67.8%,Easy,
 
@@ -349,4 +349,3 @@
 265,Paint House II,40.1%,Hard,
 
 128,Longest Consecutive Sequence,40.1%,Hard,
-

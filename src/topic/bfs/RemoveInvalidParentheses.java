@@ -2,67 +2,49 @@ package bfs;
 import java.util.*;
 
 
-// Facebook
+// HARD: Facebook
 // Give a string with parentheses, remove invalid parentheses
 // String may contains other char
 // Count number of open and close char, if close > open, then remove random none 2 continuous
-// append to queue, after that reverse string and do the same
+// DFS: from next position where close > open and position where we remove close bracket
+// How about open > close, reverse string and do the same
 public class RemoveInvalidParentheses {
-    private List<StringBuilder> remove(StringBuilder s, char open, char close) {
-        List<StringBuilder> queue = new ArrayList<>();
+    public List<String> removeInvalidParentheses(String s) {
+        List<String> ans = new ArrayList<>();
+        remove(s, ans, 0, 0, '(', ')');
+        return ans;
+    }
 
-        queue.add(s);
-
+    public void remove(String s, List<String> ans, int lastInvalid, int lastRemove, char open, char close) {
         int count = 0;
 
-        for(int i = 0; i < s.length(); i++) {
-            if(s.charAt(i) == open) {
+        for (int i = lastInvalid; i < s.length(); i++) {
+            if (s.charAt(i) == open) {
                 count ++;
             }
 
-            if(s.charAt(i) == close) {
+            if (s.charAt(i) == close) {
                 count --;
             }
 
+            // Invalid position
             if(count < 0) {
-                List<StringBuilder> newQueue = new ArrayList<>();
-                for(StringBuilder sb: queue) {
-                    for(int j = 0; j <= i; j ++) {
-                        if(sb.charAt(j) == close && (j == 0 || sb.charAt(j) != sb.charAt(j-1))) {
-                            StringBuilder cloneSb = new StringBuilder(sb.toString());
-                            cloneSb.setCharAt(j, ' ');
-                            newQueue.add(cloneSb);
-                        }
+                // Remove close bracket from last remove position to avoid duplicate
+                for (int j = lastRemove; j <= i; j++) {
+                    if (s.charAt(j) == close && (j == lastRemove || s.charAt(j - 1) != close)) {
+                        remove(s.substring(0, j) + s.substring(j + 1, s.length()), ans, i, j, open, close);
                     }
                 }
-                count = 0;
-                queue = newQueue;
+                return;
             }
         }
 
-        List<StringBuilder> list = new ArrayList<>();
-
-        if(count > 0 && open == '(') {
-            for(StringBuilder processed: queue) {
-                List<StringBuilder> res = remove(processed.reverse(), ')', '(');
-                for(StringBuilder r: res) {
-                    list.add(r.reverse());
-                }
-            }
-        } else {
-            list = queue;
-        }
-
-        return list;
-    }
-
-    public List<String> removeInvalidParentheses(String s) {
-        List<StringBuilder> res = remove(new StringBuilder(s), '(', ')');
-        Set<String> ans = new HashSet<>();
-
-        for(StringBuilder sb: res) {
-            ans.add(sb.toString().replaceAll(" ", ""));
-        }
-        return new ArrayList<String>(ans);
+        String reversed = new StringBuilder(s).reverse().toString();
+        // Finished left to right, reverse string and do the same
+        if (open == '(')
+            remove(reversed, ans, 0, 0, ')', '(');
+        // Finished right to left, add to result
+        else
+            ans.add(reversed);
     }
 }
