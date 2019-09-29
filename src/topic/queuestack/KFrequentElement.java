@@ -2,6 +2,8 @@ package queuestack;
 import java.util.*;
 
 
+// https://www.programcreek.com/2014/05/leetcode-top-k-frequent-elements-java/
+// Solution: use min heap with size k
 public class TopKFrequentElement {
     public List<Integer> topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> count = new HashMap<> ();

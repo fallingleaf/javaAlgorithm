@@ -2,7 +2,7 @@ package bitmap;
 import java.util.*;
 
 
-public class BitMapSolution {
+public class UniqueIP {
 
     /*
         Max value of IP is 2^32 - 1

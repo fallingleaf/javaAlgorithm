@@ -12,19 +12,19 @@
 
 339,Nested List Weight Sum,66.1%,Easy,
 
-419,Battleships in a Board,64.6%,Medium,
+419,Battleships in a Board,64.6%,Medium, done
 
 346,Moving Average from Data Stream,63.5%,Easy,
 
 344,Reverse String,62.0%,Easy,
 
-750,Number Of Corner Rectangles,61.7%,Medium,
+750,Number Of Corner Rectangles,61.7%,Medium, done
 
 893,Groups of Special-Equivalent Strings,60.6%,Easy,
 
-280,Wiggle Sort,60.0%,Medium,
+280,Wiggle Sort,60.0%,Medium, done
 
-791,Custom Sort String,59.9%,Medium,
+791,Custom Sort String,59.9%,Medium, done
 
 463,Island Perimeter,59.4%,Easy,
 
@@ -32,15 +32,15 @@
 
 266,Palindrome Permutation,59.1%,Easy,
 
-442,Find All Duplicates in an Array,58.9%,Medium,
+442,Find All Duplicates in an Array,58.9%,Medium,done
 
-953,Verifying an Alien Dictionary,58.7%,Easy,
+953,Verifying an Alien Dictionary,58.7%,Easy, done
 
-412,Fizz Buzz,58.3%,Easy,
+412,Fizz Buzz,58.3%,Easy, done
 
 104,Maximum Depth of Binary Tree,58.0%,Easy,
 
-136,Single Number,57.8%,Easy,
+136,Single Number,57.8%,Easy, done
 
 637,Average of Levels in Binary Tree,57.2%,Easy,
 
@@ -48,7 +48,7 @@
 
 824,Goat Latin,55.7%,Easy,
 
-260,Single Number III,55.3%,Medium,
+260,Single Number III,55.3%,Medium, done
 
 647,Palindromic Substrings,54.8%,Medium,
 
