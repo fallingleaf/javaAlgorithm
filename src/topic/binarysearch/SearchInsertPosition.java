@@ -1,8 +1,8 @@
 package generic;
 import java.util.*;
 
-
-public class BinarySearch {
+// https://leetcode.com/problems/search-insert-position/
+public class SearchInsertPosition {
     public int searchInsertPosition(int[] nums, int k) {
         if(nums.length == 0) {
             return 0;
