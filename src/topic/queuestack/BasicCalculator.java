@@ -88,4 +88,61 @@ public class BasicCalculator {
         sum += prevNum;
         return sum;
     }
+
+    // Basic calculator 3, contains + - * / and ()
+    class Result {
+        double res;
+        int idx;
+    }
+
+    public Result cal(String s, int i) {
+        if(s.isEmpty()) {
+            return 0;
+        }
+        double sum = 0.0;
+        double curr = 0;
+        double prevNum = 0;
+        char prevOp = '+';
+
+        while(i < s.length()) {
+            char c = s.charAt(i);
+            if(c <= '9' && c >= '0') {
+                curr = curr * 10 + (int)(c - '0');
+            } else if(c == '(') {
+                Result r = cal(s, i+1);
+                curr = r.res;
+                i = r.idx;
+            } else if(c == ')') {
+                break;
+            } else {
+                if(prevOp == '+') {
+                    sum += prevNum;
+                    prevNum = curr;
+                }
+
+                if(prevOp == '-') {
+                    sum += prevNum;
+                    prevNum = -curr;
+                }
+
+                if(prevOp == '*') {
+                    prevNum = prevNum * curr;
+                }
+
+                if(prevOp == '/' && curr != 0.0) {
+                    prevNum = prevNum / curr;
+                }
+
+                curr = 0.0;
+                prevOp = c;
+            }
+            i++;
+        }
+        return new Result(sum, i);
+    }
+
+    public double calculate3(String s) {
+        Result ans = calc(s, 0);
+        return ans.res;
+    }
 }
