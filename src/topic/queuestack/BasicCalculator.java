@@ -90,6 +90,7 @@ public class BasicCalculator {
     }
 
     // Basic calculator 3, contains + - * / and ()
+    // Recursive calculate next result, and return number as well as next index
     class Result {
         double res;
         int idx;
@@ -97,11 +98,11 @@ public class BasicCalculator {
 
     public Result cal(String s, int i) {
         if(s.isEmpty()) {
-            return 0;
+            return 0.0;
         }
         double sum = 0.0;
-        double curr = 0;
-        double prevNum = 0;
+        double curr = 0.0;
+        double prevNum = 0.0;
         char prevOp = '+';
 
         while(i < s.length()) {
@@ -138,6 +139,7 @@ public class BasicCalculator {
             }
             i++;
         }
+        sum += prevNum;
         return new Result(sum, i);
     }
 
